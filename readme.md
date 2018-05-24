@@ -86,10 +86,12 @@ JSSDK API returns result by CallBack which contains Error code for detail.
 3.  **url** : JSSDK URL 3rd Party registered in JoinMe Develop Web.
 
 
-
-**Method:**POST /access                                                                                                                                                                                                                                                                                                                                                                       **Header:**Content-Type: application/json                                                                                                                                                                                                                                                                                                                                                     **Authorization:** Bearer {{**access\_token**}}                                                                                                                                                                                                                                                                                                                                        **Request:**  
-
+**Request:**
 ```json
+Method:POST /access
+Header:Content-type: application/json
+Authorization: Bearer {{access_token}}
+Request:
 //Get Ticket
 {
     "query":"query {jsSdkScope {ticket(scope: \"All\", url: \"https://www.3rdParty.com/\")}}"
