@@ -1,20 +1,20 @@
-# **JoinMe JSSDK for Web Readme** 
+# **FreePP JSSDK for Web Readme** 
 
 
 
 # 1.Overview
 
-This document describes how to integrate JoinMe JSSDK in 3rd Party's Web Application. Before using JSSDK service, JSSDK authentication is required.
+This document describes how to integrate FreePP JSSDK in 3rd Party's Web Application. Before using JSSDK service, JSSDK authentication is required.
 
-For authentication detail, please refer Request Access Token API which grant\_type is client\_credentials in JoinMe\_OAuth\_Readme.
+For authentication detail, please refer Request Access Token API which grant\_type is client\_credentials in FreePP\_OAuth\_Readme.
 
 
 
 # 2.Import JS
 
-Please download JoinMe JSSDK package which contains followings files. :
+Please download FreePP JSSDK package which contains followings files. :
 
-**lib\jmjs\_pub.js:** JoinMe JSSDK JS file, which needs to be imported in 3rd Party Web. It supports AMD/CMD.
+**lib\jmjs\_pub.js:** FreePP JSSDK JS file, which needs to be imported in 3rd Party Web. It supports AMD/CMD.
 
 **example\jmjs_demo.js,  example\test.html:** Example Code, and HTML page.
 
@@ -28,21 +28,21 @@ Before using JSSDK, 3rd Party needs to run Authentication. Following is Authenti
 
 ## 3.1 Steps Description:
 
-**Step 1:** 3rd Party Web App calls Request Access Token API which grant\_type is client\_credentials. Please refer JoinMe\_OAuth\_Readme for detail. And then, call "Get Ticket" API to get "Ticket" for JSSDK.
+**Step 1:** 3rd Party Web App calls Request Access Token API which grant\_type is client\_credentials. Please refer FreePP\_OAuth\_Readme for detail. And then, call "Get Ticket" API to get "Ticket" for JSSDK.
 
-**Step 2:** 3rd Party Web App calls "Set Config" to transfer ticket to JoinMe APP. Please refer "Set Config" API.
+**Step 2:** 3rd Party Web App calls "Set Config" to transfer ticket to FreePP APP. Please refer "Set Config" API.
 
-**Step 3:** JoinMe APP query identification of 3rd Party from JoinMe Server, and APP will verify if 3rd Party valid or not. If Pass, JSSDK is available for service.
+**Step 3:** FreePP APP query identification of 3rd Party from FreePP Server, and APP will verify if 3rd Party valid or not. If Pass, JSSDK is available for service.
 
 ## 3.2 Refresh Token:
 
 Once Token expired, JSSDK API returns error code "103" which means "Token Expired" message. 3rd Party Web App shall run the following steps to refresh token , and ticket.
 
-**Step 1:** 3rd Party Web App calls **Refresh** Access Token API. Please refer JoinMe\_OAuth\_Readme for detail. And then, call "Get Ticket" API to get "Ticket" for JSSDK.
+**Step 1:** 3rd Party Web App calls **Refresh** Access Token API. Please refer FreePP\_OAuth\_Readme for detail. And then, call "Get Ticket" API to get "Ticket" for JSSDK.
 
-**Step 2:** 3rd Party Web App calls "Set Config" to transfer ticket to JoinMe APP. Please refer "Set Config" API.
+**Step 2:** 3rd Party Web App calls "Set Config" to transfer ticket to FreePP APP. Please refer "Set Config" API.
 
-**Step 3:** JoinMe APP query identification of 3rd Party from JoinMe Server, and APP will verify if 3rd Party valid or not. If Pass, JSSDK is available for service.
+**Step 3:** FreePP APP query identification of 3rd Party from FreePP Server, and APP will verify if 3rd Party valid or not. If Pass, JSSDK is available for service.
 
 # 4. API Refernece
 
@@ -77,13 +77,13 @@ JSSDK API returns result by CallBack which contains Error code for detail.
 
 ## 4.2 Get Ticket
 
-3rd Party gets Ticket from JoinMe Sever , and the parameters are
+3rd Party gets Ticket from FreePP Sever , and the parameters are
 
-1.  **Access\_Token** : This is Access Token form Request Access Token API which grant\_type is client\_credentials. Please refer JoinMe\_OAuth\_Readme for detail.
+1.  **Access\_Token** : This is Access Token form Request Access Token API which grant\_type is client\_credentials. Please refer FreePP\_OAuth\_Readme for detail.
 
 2.  **scope** : Please set "All". It's Reserved for further.
 
-3.  **url** : JSSDK URL 3rd Party registered in JoinMe Develop Web.
+3.  **url** : JSSDK URL 3rd Party registered in FreePP Develop Web.
 
 
 **Request:**
@@ -117,7 +117,7 @@ Request:
 
 ## 4.3 SetConfig
 
-Once 3rd Party gets Ticket, you need to transfer it to JoinMe APP by this API.
+Once 3rd Party gets Ticket, you need to transfer it to FreePP APP by this API.
 
 ```javascript
     var SetConfig = function(){
