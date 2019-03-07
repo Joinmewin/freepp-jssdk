@@ -199,7 +199,7 @@ Return user's network.
 
 ## 4.6 GetQRcode
 
-Return user's network.
+Return QR result.
 
 ```javascript
     var GetQRcode = function(){
