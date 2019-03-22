@@ -170,7 +170,7 @@ Return User's Location Information.
 
 Return user's network.
 
-```
+```javascript
     var GetNetworkType = function(){
         var params = {
             cb:function(err,res){
@@ -186,14 +186,9 @@ Return user's network.
 
 
 **Return:**                         
+res.networkType 
+//3G/4G/WIFI/No network
 
-​    res //return type is String, ether of following values 
-
-​    //"WIFI"              
-
-​    //"MOBILE"    // Data Network
-
-​    //"No network"  
 
 
 
@@ -216,7 +211,7 @@ Return QR result.
 ```
 
 **Return:**
-  res //String value                 
+​  res //String value                 
 
 ​        // e.g. "https://www.3rdparty.com" 
 
@@ -240,6 +235,126 @@ Close current web view window.
     }
 ```
 
+## 4.8 GetDeviceUUID
+   Return phone’s UUID
+   
+```javascript
+    var GetDeviceUUID = function(){
+        var params = {
+            cb:function(err,res){
+                if(err)
+                    alert(res);
+                else{
+                      alert(res.uuid);
+                }
+            }
+        };
+        jmjs.GetDeviceUUID(params);
+    }
+```
+
+**Return:**                       
+
+   res.uuid
+
+
+## 4.9 GetCurrentWifi
+   Return current connected WIFI info
+   
+```javascript
+    var GetCurrentWifi = function(){
+        var params = {
+            cb:function(err,res){
+                if(err)
+                    alert(res);
+                else{
+                      alert(JSON.stringify(res));
+                }
+            }
+        };
+        jmjs.GetCurrentWifi(params);
+    }
+```
+
+**Return:**                       
+
+result by different situation:
+### 1. get info correctly
+```javascript
+{
+"current_wifi":[{"ssid":"Antek01","mac":"11:11:22:33:44:55"}]
+}
+```
+
+### 2.WiFi Off
+```javascript
+{
+ "wifi_state": "wifi disabled" 
+}
+```  
+
+### 3.No connected WiFi
+```javascript
+{
+"current_wifi":[{"ssid":"null","mac":"null"}]
+}
+```
+
+
+## 4.10 GetAllWifi
+   Return current connected WIFI info
+```javascript
+      var GetAllWifi = function(){
+        var params = {
+            cb:function(err,res){
+                if(err)
+                    alert(res);
+                else{
+                      alert(JSON.stringify(res));
+                }
+            }
+        };
+        jmjs.GetAllWifi(params);
+    }
+```
+
+Return
+res by different situation
+### 1. get info correctly
+```javascript
+{
+"current_wifi":[{"ssid":"Antek01","mac":"11:11:22:33:44:55"}],
+“allscan_wifi”:[
+{"ssid":"Antek01","mac":"11:11:22:33:44:55"},
+{"ssid":"Antek02","mac":"22:11:22:33:44:55"}
+]
+}
+```
+### 2.WiFi Off
+```javascript
+{
+ "wifi_state": "wifi disabled" 
+}
+```
+
+### 3.WiFi On, No connected WiFi, No availabe WiFi
+```javascript
+{
+"current_wifi":[{"ssid":"null","mac":"null"}],
+“allscan_wifi":[{"ssid":"null","mac":"null"}]
+}
+```
+
+### 4.WiFi On, No connected Wifi, Get available Wifi 
+```javascript
+{
+"current_wifi":[{"ssid":"null","mac":"null"}],
+"allscan_wifi":[
+{"ssid":"Antek01","mac":"11:11:22:33:44:55"},
+{"ssid":"Antek02","mac":"22:11:22:33:44:55"}
+]
+}
+```
 
 
 # 5.License
