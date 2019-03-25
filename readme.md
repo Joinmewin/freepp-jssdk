@@ -46,17 +46,11 @@ Once Token expired, JSSDK API returns error code "103" which means "Token Expire
 
 # 4. API Refernece
 
-Some APIs are not available, due to iOS limitation. Following is the support table for Android ,and iOS.
+Android & iOS Support version :  
+  
+**Android : v4.4.7.630 & later  
+iOS : v4.4.4 & later**
 
-
-
-|                | Android(v1.0.24 & later) | iOS(v1.0.23& later ) |
-| -------------- | ------------------------ | -------------------- |
-| SetConfig      | Y                        | Y                    |
-| GetQRcode      | Y                        | Y                    |
-| CloseWebView   | Y                        | Y                    |
-| GetLocation    | Y                        | N                    |
-| GetNetworkType | Y                        | N                    |
 
  
 
@@ -280,21 +274,21 @@ Close current web view window.
 
 result by different situation:
 ### 1. get info correctly
-```javascript
+```json
 {
 "current_wifi":[{"ssid":"Antek01","mac":"11:11:22:33:44:55"}]
 }
 ```
 
 ### 2.WiFi Off
-```javascript
+```json
 {
  "wifi_state": "wifi disabled" 
 }
 ```  
 
 ### 3.No connected WiFi
-```javascript
+```json
 {
 "current_wifi":[{"ssid":"null","mac":"null"}]
 }
@@ -321,7 +315,7 @@ result by different situation:
 Return
 res by different situation
 ### 1. get info correctly
-```javascript
+```json
 {
 "current_wifi":[{"ssid":"Antek01","mac":"11:11:22:33:44:55"}],
 “allscan_wifi”:[
@@ -331,14 +325,14 @@ res by different situation
 }
 ```
 ### 2.WiFi Off
-```javascript
+```json
 {
  "wifi_state": "wifi disabled" 
 }
 ```
 
 ### 3.WiFi On, No connected WiFi, No availabe WiFi
-```javascript
+```json
 {
 "current_wifi":[{"ssid":"null","mac":"null"}],
 “allscan_wifi":[{"ssid":"null","mac":"null"}]
